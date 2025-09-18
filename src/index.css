@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("./assets/fonts/Gilroy-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Doto";
+  src: url("./assets/fonts/Doto-Regular.ttf");
+}
+
+@theme {
+  --font-gilroy: "Gilroy", sans-serif;
+  --font-doto: "Doto", sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #181818; /* or use Tailwind's bg-gray-900 in your HTML/body */
+    color: #f6f6f6;
+  }
+}
+
+
