@@ -23,9 +23,9 @@ const Login = () => {
     }
 
   return (
-    <div className='h-screen w-screen flex items-center flex-col justify-center'>
-        <h1 className="text-3xl">Login</h1>
-        <div>
+    <div className='h-screen w-screen flex items-center flex-col justify-start mx-auto'>
+        <h1 className="text-4xl mt-12 font-semibold">Login</h1>
+        <div className="mt-24">
             <form className='flex flex-col gap-3' onSubmit={handleSubmit}>
                 <input
                     type='email'

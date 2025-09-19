@@ -18,6 +18,7 @@
 @layer base {
   * {
     box-sizing: border-box;
+    font-family: "Gilroy";
   }
   html, body {
     height: 100%;
@@ -27,4 +28,6 @@
   }
 }
 
-
+#tasklist::-webkit-scrollbar{
+  display: none;
+}
