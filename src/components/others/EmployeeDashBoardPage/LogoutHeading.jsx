@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Heading = () => {
+const LogoutHeading = () => {
   return (
     <div className='flex justify-between items-center'>
         <p className='text-5xl font-bold'><span className='text-4xl font-semibold'>Hello,</span><br/>Kumar Purushottam 👋</p>
@@ -9,4 +9,4 @@ const Heading = () => {
   )
 }
 
-export default Heading
+export default LogoutHeading

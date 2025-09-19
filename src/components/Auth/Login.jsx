@@ -24,9 +24,10 @@ const Login = () => {
 
   return (
     <div className='h-screen w-screen flex items-center flex-col justify-start mx-auto'>
+        <div >
         <h1 className="text-4xl mt-12 font-semibold">Login</h1>
         <div className="mt-24">
-            <form className='flex flex-col gap-3' onSubmit={handleSubmit}>
+            <form className='flex flex-col gap-8' onSubmit={handleSubmit}>
                 <input
                     type='email'
                     placeholder='Email'
@@ -44,7 +45,7 @@ const Login = () => {
                     required
                 />
 
-                <div className='flex gap-16 text-[#5e676e]'>
+                <div className='flex gap-16 text-[#5e676e] text-lg'>
                     <label>
                     <input
                         type='checkbox'
@@ -55,9 +56,10 @@ const Login = () => {
                     <button type='button' className='cursor-pointer text-red-300 '>Forget Password</button>
                 </div>
 
-                <button className='bg-amber-700 cursor-pointer p-2 rounded-full'>Log In</button>
+                <button className='bg-amber-600 cursor-pointer p-2 rounded-full hover:bg-amber-700 text-xl'>Log In</button>
                 
             </form>
+        </div>
         </div>
     </div>
   )

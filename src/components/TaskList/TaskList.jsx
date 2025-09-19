@@ -1,6 +1,6 @@
 export default function TaskList() {
     return(
-        <div id="tasklist" className="mt-10 h-[55%] py-5 flex items-center justify-start gap-2 overflow-x-auto">
+        <div className="mt-10 h-[55%] py-5 flex items-center justify-start gap-2 overflow-x-auto">
             <div className="flex-shrink-0 h-full w-[360px] bg-red-400 rounded-xl p-4 text-white">
                 <div className="flex justify-between font-bold">
                     <h3 className="bg-red-600 p-0.5 px-1 rounded">High</h3>
