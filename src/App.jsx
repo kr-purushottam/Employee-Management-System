@@ -6,36 +6,43 @@ import AuthContext from "./context/AuthContext"
 import { setLocalStorage } from "./utils/LocalStorage"
 
 function App() {
-  const{ setLoginUserProfile, LoginUser, employeeData, adminData } = useContext(AuthContext);
+  const{ employeeData, adminData } = useContext(AuthContext);
+  const[user, setUser] = useState(null);
   const[loggedInUserData, setLoggedInUserData] = useState(null);
 
-  // useEffect(() => {
-  //   if(employeeData && adminData) {
-  //     const loggedInUserRole = JSON.parse(localStorage.getItem("loggedInUser"));
-  //     // console.log(loggedInUserRole.role)
-  //   }  
-  // },[employeeData , adminData])
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    
+    if(loggedInUser) {
+      const userData = JSON.parse(loggedInUser);
+      setUser(userData.role);
+      setLoggedInUserData(userData.data);
+    }
+
+  },[])
+
+
+
+
 
   function handleLogin(email, password) {
-    if(email === "admin@mail.com") {
-      const loggedInAdmin = adminData.find((admin) => email === admin.email && password == admin.password)
+    if(email === "admin@mail.com" && password == "123") {
+      const loggedInAdmin = adminData[0];
       if(loggedInAdmin) {
-        setLoggedInUserData(loggedInAdmin);
+        setUser('admin');
+        setLoggedInUserData(loggedInAdmin)
+        localStorage.setItem("loggedInUser", JSON.stringify({role : "admin", data : loggedInAdmin}))
       }
-      
-      localStorage.setItem("loggedInUser", JSON.stringify({role : "admin"}))
-      setLoginUserProfile()
-
     } else if(employeeData) {
       const loggedInEmployee = employeeData.find((emp) => email === emp.email && password == emp.password)
-      // console.log("loggedInEmployee", loggedInEmployee)
+      
       if(loggedInEmployee) {
+        setUser("employee")
         setLoggedInUserData(loggedInEmployee);
+        localStorage.setItem("loggedInUser", JSON.stringify({role : "employee", data : loggedInEmployee}))
       }
 
-      localStorage.setItem("loggedInUser", JSON.stringify({role : "employee"}))
-      setLoginUserProfile()
-
+      
     } else{
       alert("koi aisa user hai hi nai lala");
     }
@@ -43,10 +50,9 @@ function App() {
 
   return (
     <>
-      {/* {console.log("LoginUser is ", LoginUser)} */}
-      {!LoginUser && <Login handleLogin={handleLogin}/>}
-      {LoginUser === "employee" && <EmployeeDashboard data={loggedInUserData}/> }
-      {LoginUser === "admin" && <AdminDashboard data={loggedInUserData}/> }
+      {!user && <Login handleLogin={handleLogin}/>}
+      {user === "employee" && <EmployeeDashboard data={loggedInUserData}/> }
+      {user === "admin" && <AdminDashboard data={loggedInUserData}/> }
 
       {/* {user == "" ? <Login handleLogin={handleLogin}/> : ""}
       {user === "employee" && <EmployeeDashboard/> }

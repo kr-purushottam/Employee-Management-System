@@ -256,9 +256,6 @@ export function setLocalStorage() {
   if (!localStorage.getItem("admin")) {
     localStorage.setItem("admin", JSON.stringify(admin));
   }
-  if (!localStorage.getItem("loggedInUser")) {
-    localStorage.setItem("loggedInUser", JSON.stringify({ role: "" }));
-  }
 }
 // localStorage.clear()
 setLocalStorage();

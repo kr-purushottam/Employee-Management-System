@@ -3,7 +3,7 @@ import LogoutHeading from '../others/EmployeeDashBoardPage/LogoutHeading'
 import TaskListDashboard from '../others/EmployeeDashBoardPage/TaskListDashboard'
 import TaskList from '../TaskList/TaskList'
 
-const EmployeeDashboard = ({data}) => {
+const EmployeeDashboard = ( {data} ) => {
   // console.log("from emp : ", loggedInUserData)
   return (
     <div className='min-h-screen flex flex-col'>
