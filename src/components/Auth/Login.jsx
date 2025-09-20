@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { getLocalStorage, setLocalStorage } from "../../utils/LocalStorage";
 
 
-const Login = () => {
-
+const Login = ({handleLogin}) => {
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
+
+
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -16,8 +18,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log("Id is : " , email)
-        // console.log("Password is : " , password)
+        handleLogin(email,password);
         setEmail("");
         setPassword("");
     }
