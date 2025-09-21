@@ -33,7 +33,7 @@ function App() {
       // console.log("employeeData is", employeeData)
       const loggedInEmployee = employeeData.find((emp) => email === emp.email && password == emp.password)
       
-      if(loggedInEmployee) {
+      if(loggedInEmployee) {  //fresh
         setUser("employee")
         setLoggedInUserData(loggedInEmployee);
         localStorage.setItem("loggedInUser", JSON.stringify({role : "employee", data : loggedInEmployee}))
@@ -48,6 +48,7 @@ function App() {
   return (  
     <>
       {!user && <Login handleLogin={handleLogin}/>}
+      {/* {console.log("value dekh le", loggedInUserData)} */}
       {user === "employee" && <EmployeeDashboard changeUser={setUser} data={loggedInUserData}/> }
       {user === "admin" && <AdminDashboard changeUser={setUser} data={loggedInUserData}/> }
 

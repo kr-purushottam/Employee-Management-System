@@ -37,6 +37,8 @@ export default function AdminTaskForm() {
         const employeeData = JSON.parse(localStorage.getItem('employee'))
         const updatedEmployeeData  = employeeData.map((emp) => {
             if(emp.name === newTask.assignTo) {
+                // console.log("emp.taskCount.newTask = " , emp.taskCount.newTask)
+                emp.taskCount.newTask = emp.taskCount.newTask + 1;
                 return {
                     ...emp,
                     tasks : [...emp.tasks, newTaskObj]

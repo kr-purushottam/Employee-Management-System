@@ -4,11 +4,11 @@ import FailedTask from "./FailedTask";
 import NewTask from "./NewTask";
 
 export default function TaskList(props) {
-    // console.log(data)
+    // console.log("props is ", props.data.tasks)
     return(
         <div className="mt-10 h-[55%] py-5 flex items-center justify-start gap-2 overflow-x-auto">
             {props.data.tasks.map((element, idk) => {
-                if(element.NewTask) { 
+                if(element.newTask) { 
                     return <NewTask 
                         key={idk}
                         title={element.title} 
