@@ -14,7 +14,13 @@ export function AuthContextProvider({children}) {
         setAdminData(adminData);
     },[])
 
-    const value = { employeeData, adminData };
+    function updateAllTasks() {
+        const{ employeeData, adminData } = getLocalStorage();
+        setEmployeeData(employeeData);
+        setAdminData(adminData);
+    }
+
+    const value = { employeeData, adminData, updateAllTasks };
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 

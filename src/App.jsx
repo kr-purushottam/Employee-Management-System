@@ -3,7 +3,7 @@ import Login from "./components/Auth/Login"
 import AdminDashboard from "./components/Dashboard/AdminDashboard"
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard"
 import AuthContext from "./context/AuthContext"
-import { setLocalStorage } from "./utils/LocalStorage"
+
 
 function App() {
   const{ employeeData, adminData } = useContext(AuthContext);
@@ -18,11 +18,7 @@ function App() {
       setUser(userData.role);
       setLoggedInUserData(userData.data);
     }
-
   },[])
-
-
-
 
 
   function handleLogin(email, password) {
@@ -34,6 +30,7 @@ function App() {
         localStorage.setItem("loggedInUser", JSON.stringify({role : "admin", data : loggedInAdmin}))
       }
     } else if(employeeData) {
+      // console.log("employeeData is", employeeData)
       const loggedInEmployee = employeeData.find((emp) => email === emp.email && password == emp.password)
       
       if(loggedInEmployee) {
@@ -48,11 +45,11 @@ function App() {
     }
   }
 
-  return (
+  return (  
     <>
       {!user && <Login handleLogin={handleLogin}/>}
-      {user === "employee" && <EmployeeDashboard data={loggedInUserData}/> }
-      {user === "admin" && <AdminDashboard data={loggedInUserData}/> }
+      {user === "employee" && <EmployeeDashboard changeUser={setUser} data={loggedInUserData}/> }
+      {user === "admin" && <AdminDashboard changeUser={setUser} data={loggedInUserData}/> }
 
       {/* {user == "" ? <Login handleLogin={handleLogin}/> : ""}
       {user === "employee" && <EmployeeDashboard/> }

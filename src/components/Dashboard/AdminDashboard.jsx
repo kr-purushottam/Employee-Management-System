@@ -3,13 +3,13 @@ import AllTask from "../others/AdminDashBoardPage/AllTask";
 import LogoutHeading from "../others/EmployeeDashBoardPage/LogoutHeading";
 import TaskListDashboard from "../others/EmployeeDashBoardPage/TaskListDashboard";
 
-export default function AdminDashboard({data}) {
+export default function AdminDashboard(props) {
     return(
         <div className="text-white min-h-screen">
             <div className="h-[100%] m-6">
-                <LogoutHeading data={data}/>
+                <LogoutHeading changeUser={props.changeUser} data={props.data}/>
                 <AdminTaskForm/>
-                <AllTask data={data}/>
+                <AllTask/>
             </div>
         </div>
     )
