@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../../../context/AuthContext";
 
 export default function AdminTaskForm() {
@@ -47,7 +47,7 @@ export default function AdminTaskForm() {
             return emp;
         })
 
-        localStorage.setItem('employee', JSON.stringify(updatedEmployeeData));
+        // localStorage.setItem('employee', JSON.stringify(updatedEmployeeData));
         updateAllTasks()
         setNewTask({title : "", date : "", assignTo: "", category: "", description: ""});
     }

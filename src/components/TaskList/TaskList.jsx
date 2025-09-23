@@ -1,48 +1,27 @@
+import { useContext } from "react";
 import AcceptedTask from "./AcceptTask";
 import CompletedTask from "./CompleteTask";
 import FailedTask from "./FailedTask";
 import NewTask from "./NewTask";
+import AuthContext from "../../context/AuthContext";
 
 export default function TaskList(props) {
-    // console.log("props is ", props.data.tasks)
+    console.log("props is ", props)
+    const{employeeData} = useContext(AuthContext);
     return(
         <div className="mt-10 h-[55%] py-5 flex items-center justify-start gap-2 overflow-x-auto">
             {props.data.tasks.map((element, idk) => {
                 if(element.newTask) { 
-                    return <NewTask 
-                        key={idk}
-                        title={element.title} 
-                        date={element.date} 
-                        description={element.description}
-                        category={element.category}
-                    />
+                    return <NewTask eachTask={element} data={props.data} key={idk} />
                 }
                 if(element.active) {
-                    return <AcceptedTask 
-                        key={idk}
-                        title={element.title} 
-                        date={element.date} 
-                        description={element.description}
-                        category={element.category}
-                    />
+                    return <AcceptedTask data={element} key={idk}/>
                 }
                 if(element.completed) {
-                    return <CompletedTask 
-                        key={idk} 
-                        title={element.title} 
-                        date={element.date} 
-                        description={element.description}
-                        category={element.category}
-                    />
+                    return <CompletedTask data={element} key={idk}/>
                 }
                 if(element.failed) {
-                    return <FailedTask 
-                        key={idk}
-                        title={element.title} 
-                        date={element.date} 
-                        description={element.description}
-                        category={element.category}
-                    />
+                    return <FailedTask data={element} key={idk}/>
                 }
             })}
         </div>
