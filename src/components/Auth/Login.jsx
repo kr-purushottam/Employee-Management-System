@@ -26,7 +26,7 @@ const Login = ({handleLogin}) => {
 
   return (
     <div className='min-h-screen w-screen flex items-center flex-col justify-start mx-auto'>
-        <div className="bg-[#313131] p-16 m-10">
+        <div className="bg-[#313131]  p-16 m-10">
         <h1 className="text-4xl mt-8 font-semibold flex text-center gap-4"><FaUserTie />  Sign In | Admin</h1>
         <div className="mt-16">
             <form className='flex flex-col gap-8' onSubmit={handleSubmit}>
