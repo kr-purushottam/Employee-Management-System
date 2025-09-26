@@ -43,7 +43,10 @@ React, React Router, Hooks (useState/useEffect/useMemo/useReducer), Tailwind CSS
 - Code-split routes (optional)
 ## 🖼️ Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/12wfs3LQEOVfdMAXdc0oiN-acjRiQr1wm/view?usp=sharing)
+![App Screenshot](https://github.com/kr-purushottam/Employee-Management-System/blob/459d8764a416dbf2b9ce0beda5b89c6b687058a6/src/assets/screenshot/homePage.png)
+![App Screenshot](https://github.com/kr-purushottam/Employee-Management-System/blob/459d8764a416dbf2b9ce0beda5b89c6b687058a6/src/assets/screenshot/adminDashboard.png)
+![App Screenshot](https://github.com/kr-purushottam/Employee-Management-System/blob/459d8764a416dbf2b9ce0beda5b89c6b687058a6/src/assets/screenshot/employeeDashboard.png)
+
 
 
 ## 📦 Release Notes
