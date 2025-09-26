@@ -1,12 +1,50 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Employee Management System (React + AWS Amplify/CloudFront)
 
-Currently, two official plugins are available:
+A production-style React app for managing employees (create, edit, list, filter). CI/CD on AWS Amplify, global delivery via CloudFront with SPA routing.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🔑 Test Credentials (Demo)
+Use these on the live demo so reviewers can log in quickly.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Admin: admin@mail.com
+
+- Employee: emp1@mail.com (also emp2/emp3/emp4/emp5@mail.com)
+
+- Password (demo): 123
+## Features
+
+- CRUD for employees with controlled forms
+
+- Search, filter, sort; list virtualization/memoized rows → smoother UX
+
+- Role-based UI (Admin vs Employee)
+
+- Error + loading states;  form validation
+
+- CI/CD (Amplify) + CloudFront SPA fallback (no 404 on refresh)
+
+
+## 🧰 Tech Stack
+
+React, React Router, Hooks (useState/useEffect/useMemo/useReducer), Tailwind CSS, Vite/CRA, AWS Amplify, CloudFront, GitHub Actions (optional)
+## 🧱 Architecture & Decisions
+
+- Feature-oriented folders (/features/employees, /features/auth)
+
+- State: local state + reducer for complex flows (forms, list ops)
+
+- Perf: memoized list rows; stable handlers (useCallback where needed)
+## 📈 Performance
+- Avoids unnecessary re-renders on large lists via memoization and keying
+
+- Lighthouse (desktop) ~90+ (varies by network)
+
+- Code-split routes (optional)
+## 🖼️ Screenshots
+
+![App Screenshot](https://drive.google.com/file/d/12wfs3LQEOVfdMAXdc0oiN-acjRiQr1wm/view?usp=sharing)
+
+
+## 📦 Release Notes
+- v1.0.0: CRUD, role-based UI, Amplify deploy, CloudFront SPA routing.
